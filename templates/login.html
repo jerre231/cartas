@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <!-- <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='static/styles_login.css') }}"> -->
+        <link rel="stylesheet" type="text/css" href="../static/styles_login.css">
+    </head>
+    <body>
+        <form method="POST">
+            <div class="input_box">
+            <label for="name">Nome: </label>
+            <input name="name" type="text"/>
+            </div>
+            <div class="input_box">
+            <label for="password">Senha: </label>
+            <input name="password" type="password"/>
+            </div>
+            <div class="input_box">
+            <input name="login" type="submit" value="login"/>
+            </div>
+        </form>
+    </body>
+</html>

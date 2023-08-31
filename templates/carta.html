@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <!-- <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='static/styles_carta.css') }}"> -->
+        <link rel= "stylesheet" type= "text/css" href= "../static/styles_carta.css">
+    </head>
+    <body>
+        <form method="POST">
+            <div class="input_box">
+            <label for="data">Data: </label>
+            <input name="data" type="text" placeholder="dd/mm/yyyy"/>
+            </div>
+            <div class="input_box">
+            <label for="destinatario">Destinatario: </label>
+            <input name="destinatario" type="text"/>
+            </div>
+            <div class="message_box">
+            <label for="mensagem">Mensagem: </label>
+            <textarea name="mensagem">
+            </textarea>
+            </div>
+            <div class="input_box">
+            <label for="remetente">Remetente: </label>
+            <input name="remetente" type="text"/>
+            </div>
+            <div class="input_box">
+            <input name="submit" value="Gerar Carta" type="submit"/>
+            </div>
+        </form>
+    </body>
+</html>
