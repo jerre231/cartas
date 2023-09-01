@@ -19,8 +19,8 @@ def login():
             linhas = arquivo.readlines()
             arquivo.seek(0)
 
-            for i in linhas
-                if linha == f"{user}: {passw}"
+            for i in linhas:
+                if linha == f"{user}: {passw}":
                     return redirect("carta/<username>")
 
                 else:
@@ -36,7 +36,7 @@ def pagina_carta(username):
         data = data_atual.strftime("%d/%m/%Y, %H:%M:%S")
         mensagem = request.form.get("mensagem")
         destinatario = request.form.get("destinatario")
-        remetente = request.form.get("remetente")
+        #remetente = request.form.get("remetente")
         gerar_carta = rquest.form.get("gerar")
 
         if gerar_carta:                 #Não sei qual condição coloca
