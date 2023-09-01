@@ -1,6 +1,6 @@
 from flask import *
 import classes
-from date import datetime
+from datetime import date
 
 app = Flask(__name__)
 
@@ -10,37 +10,35 @@ data_atual = date.today()
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    if method == ["POST"]:
+    if request.method == "POST":
         user = request.form.get("nome")
-        global username; username = user
+        global username
+        username = user
         passw = request.form.get("password")
 
         with open('users.txt', 'r') as arquivo:
             linhas = arquivo.readlines()
-            arquivo.seek(0)
 
-            for i in linhas:
-                if linha == f"{user}: {passw}":
-                    return redirect("carta/<username>")
+            for linha in linhas:
+                if linha.strip() == f"{user}: {passw}":
+                    return redirect(f"/carta/{username}")
 
-                else:
-                    return redirect("/login")
-            
+        return redirect("/login")
 
-        return render_template("login.html")
+    return render_template("login.html")
 
 @app.route("/carta/<username>", methods=['GET', 'POST'])
 def pagina_carta(username):
-    if method == ["POST"]:
+    if request.method == "POST":
         
         data = data_atual.strftime("%d/%m/%Y, %H:%M:%S")
         mensagem = request.form.get("mensagem")
         destinatario = request.form.get("destinatario")
         #remetente = request.form.get("remetente")
-        gerar_carta = rquest.form.get("gerar")
+        gerar_carta = request.form.get("gerar")
 
         if gerar_carta:                 #Não sei qual condição coloca
-            carta[newl] = Carta(number_of_letter, data, destinatario, mensagem, user)
+            carta.append(Carta(newl, data, destinatario, mensagem, username))
             carta[newl].write()
         
         return render_template("carta.html")

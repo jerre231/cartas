@@ -1,3 +1,3 @@
-sk --app main.py run -p 5040 &
+flask --app main.py run -p 5000 &
 sleep 1
-firefox 127.0.0.1:5040/login
+firefox 127.0.0.1:5000/login
