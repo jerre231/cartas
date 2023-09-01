@@ -8,10 +8,11 @@
             <div class="input_box">
             <label for="name">Nome: </label>
             <input name="name" type="text"/>
+            <input type="hidden" name="username" value="{{ username }}">
             </div>
             <div class="input_box">
             <label for="password">Senha: </label>
-            <input name="password" type="password"/>
+            <input name="password" type="password" required="True"/>
             </div>
             <div class="input_box">
             <input name="login" type="submit" value="login"/>
