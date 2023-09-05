@@ -44,18 +44,37 @@ def cadastro():
 
 @app.route("/carta/<user>", methods=['GET', 'POST'])
 def pagina_carta(user):
+    data = {}
+    remetente = []
+    mensagem = []
+
+    for arquivo in os.listdir("banco_dt"):
+        if arquivo.endswith(".txt"):
+            with open(os.path.join("banco_dt", arquivo), "r") as txt:
+                nome_arquivo = txt.readline()
+
+                if nome_arquivo.strip() == user:  # Use strip() para remover espaços em branco
+                    remetente.append(txt.readline())
+                    mensagem.append(txt.readline())
+
+    for i in range(len(remetente)):
+        data[remetente[i]] = mensagem[i]
+
+    df = pd.DataFrame(data)
+    df_html = df.to_html(classes='table table-striped', index=False)
+
     if request.method == "POST":
-        data = data_atual.strftime("%d/%m/%Y, %H:%M:%S")
+        data_atual = datetime.datetime.now()
         mensagem = request.form.get("mensagem")
         destinatario = request.form.get("destinatario")
 
         if "gerar" in request.form:
             newl = len(cartas)
-            carta = Carta(newl, data, destinatario, mensagem, user)
+            carta = Carta(newl, data_atual, destinatario, mensagem, user)
             cartas.append(carta)
             carta.write()
 
-    return render_template("carta.html")
+    return render_template("carta.html", df_html=df_html)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -34,7 +34,9 @@
 
         <div name="reading_area">
             <div name="reading_title"><pr name="reading_title">Emails Antigos</pr></div>
-            <textarea name="reading_area" readonly></textarea>
+            <textarea name="reading_area" readonly>
+		    <a>{{ tabela_html | safe }}</a>
+	    </textarea>
         </div>
     </body>
 </html>

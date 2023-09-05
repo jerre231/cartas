@@ -1,5 +1,6 @@
 from fpdf import FPDF
 import os
+import pandas as pd
 
 class Carta():
     def __init__(self, carta_id, data, destinatario, mensagem, remetente):
@@ -34,20 +35,3 @@ class User():
     def cadastrar(self):
         with open("users.txt", 'a') as arquivo:
             arquivo.write(f"{self.username}: {self.passw}")
-
-
-
-#sim, essa função é fora do User. Não tocar, obrigado.                                 #TODO: implementar uma janela em "cartas.html" para poder ler a "mensagem"!
-def encontrar_cartas(username):
-    remetente = []
-    mensagem = []
-    i = 0
-    for arquivo in os.listdir("banco_dt"):
-        if arquivo.endswith(".txt"):
-            with open(os.path.join("banco_dt", arquivo), "r") as txt:
-                nome_arquivo = txt.readline(2)
-
-                if nome_arquivo == username:
-                    remetente[i] = txt.readline(4)
-                    mensagem[i] = txt.readline(3)
-                    i += 1
