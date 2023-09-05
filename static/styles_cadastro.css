@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+form[name="primary-form"] {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input_box {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="passw_c"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="text"]:focus,
+input[type="passw_c"]:focus {
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #3396ff;
+    font-weight: bolder;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+div[name="cadastro_title"] {
+margin-bottom: 10px;
+text-align: center;
+}
+
+pr {
+font-size: x-large;
+font-weight:bold;
+}
+
+div[name="submit_box"]{
+    text-align: center;
+}
+
+.submit_box {
+    text-align: center;
+}

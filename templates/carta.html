@@ -4,13 +4,14 @@
         <link rel= "stylesheet" type= "text/css" href= "../static/styles_carta.css">
     </head>
     <body>
-        <form method="POST">
+        <form method="POST" name="primary-form">
             <!--
             <div class="input_box">
             <label for="data">Data: </label>
             <input name="data" type="text" placeholder="dd/mm/yyyy"/>
             </div>
             -->
+            
             <div class="input_box">
             <label for="destinatario">Destinatario: </label>
             <input name="destinatario" type="text"/>
@@ -25,10 +26,15 @@
             <label for="remetente">Remetente: </label>
             <input name="remetente" type="text"/>
             </div>
-        -->
+            -->
             <div class="input_box">
             <input name="gerar" type="submit" value="Gerar Carta" />
             </div>
         </form>
+
+        <div name="reading_area">
+            <div name="reading_title"><pr name="reading_title">Emails Antigos</pr></div>
+            <textarea name="reading_area" readonly></textarea>
+        </div>
     </body>
 </html>

@@ -5,7 +5,7 @@ body {
     background-color: #f2f2f2;
 }
 
-form {
+form[name="primary-form"] {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -51,6 +51,20 @@ input[type="submit"]:hover {
     background-color: #3396ff;
     font-weight: bolder;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+div[name="login_title"] {
+    margin-bottom: 10px;
+    text-align: center;
+    }
+    
+pr {
+font-size: x-large;
+font-weight:bold;
+}
+
+div[name="submit_box"]{
+    text-align: center;
 }
 
 .submit_box {
