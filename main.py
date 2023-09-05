@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, redirect
-from classes import Carta
+from classes import *
 from datetime import datetime
 
 app = Flask(__name__)
 
+usuario = User
 cartas = []
 data_atual = datetime.now()
 
@@ -28,6 +29,19 @@ def login():
             error = "Credenciais inválidas. Tente novamente."
 
     return render_template("login.html", error=error)
+
+'''                                                                            #TODO: criar template "cadastro.html" para funcionar com essa função,
+@app.route("/cadastro", methods=['GET', 'POST'])                                inputs de nome e senha devem receber nome equivalente às variáveis
+def cadastro():                                                                 declaradas dentro do parentesis
+    if request.method == "POST":
+        name = request.form.get("name_c")
+        passw = request.form.get("passw_c")
+        usuario.cadastrar(name, passw)
+        
+        return redirect("/login")
+
+    return render_template("cadastro.html")
+'''
 
 @app.route("/carta/<user>", methods=['GET', 'POST'])
 def pagina_carta(user):

@@ -24,3 +24,12 @@ class Carta():
         self.pdf.cell(200, 10, txt = self.msg, ln = 3, align = 'C')
         self.pdf.cell(200, 10, txt = self.rmt, ln = 4, align = 'C')
         self.pdf.output(f"carta_{self.id}.pdf")
+
+class User():
+    def __init__(self, us, pw):
+        self.username = us
+        self.passw = pw
+
+    def cadastrar(self):
+        with open("users.txt", 'a') as arquivo:
+            arquivo.write(f"{self.username}: {self.passw}")
