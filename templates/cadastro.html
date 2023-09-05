@@ -1,24 +1,24 @@
 <html>
     <head>
         <!-- <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='static/styles_login.css') }}"> -->
-        <link rel="stylesheet" type="text/css" href="../static/styles_login.css">
+        <link rel="stylesheet" type="text/css" href="../static/styles_cadastro.css">
     </head>
     <body>
         <form method="POST" name="primary-form">
-            <div name="login_title"><pr>Login</pr></div>
+            <div name="cadastro_title"><pr>Cadastro</pr></div>
             <div class="input_box">
             <label for="name">Nome: </label>
             <input name="name" type="text"/>
-            <input type="hidden" name="username" value="{{ username }}">
+            <input type="hidden" name="name_c" value="{{ name_c }}">
             </div>
             <div class="input_box">
             <label for="password">Senha: </label>
-            <input name="password" type="password" required="True"/>
+            <input name="passw_c" type="passw_c" required="True"/>
             </div>
             <div class="input_box" name="submit_box">
-            <input name="login" type="submit" value="login"/>
-            <form action="{{ url_for('cadastro) }}" method="get">
-            <input name="cadastro" type="submit" value="cadastro"/></form>
+            <input name="cadastrar" type="submit" value="Cadastrar"/>
+            <form action="{{ url_for('login') }}" method="get">
+            <input name="Voltar" type="submit" value="Voltar"/></form>
             </div>
         </form>
     </body>

@@ -30,9 +30,9 @@ def login():
 
     return render_template("login.html", error=error)
 
-'''                                                                            #TODO: criar template "cadastro.html" para funcionar com essa função,
-@app.route("/cadastro", methods=['GET', 'POST'])                                inputs de nome e senha devem receber nome equivalente às variáveis
-def cadastro():                                                                 declaradas dentro do parentesis
+
+@app.route("/cadastro", methods=['GET', 'POST'])
+def cadastro():
     if request.method == "POST":
         name = request.form.get("name_c")
         passw = request.form.get("passw_c")
@@ -41,7 +41,6 @@ def cadastro():                                                                 
         return redirect("/login")
 
     return render_template("cadastro.html")
-'''
 
 @app.route("/carta/<user>", methods=['GET', 'POST'])
 def pagina_carta(user):
