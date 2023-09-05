@@ -39,10 +39,13 @@ class User():
 
 #sim, essa função é fora do User. Não tocar, obrigado.                                 #TODO: implementar uma janela em "cartas.html" para poder ler a "mensagem"!
 def encontrar_cartas(username):
+    i = 0
     for arquivo in os.listdir("banco_dt"):
         if arquivo.endswith(".txt"):
             with open(os.path.join("banco_dt", arquivo), "r") as txt:
                 nome_arquivo = txt.readline(2)
 
                 if nome_arquivo == username:
-                    mensagem = txt.readline(3)
+                    remetente[i] = tx.readline(4)
+                    mensagem[i] = txt.readline(3)
+                    i += 1
