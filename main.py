@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from classes import *
 from datetime import datetime
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -44,21 +45,21 @@ def cadastro():
 
 @app.route("/carta/<user>", methods=['GET', 'POST'])
 def pagina_carta(user):
-    data = {}
+    data = []
     remetente = []
     mensagem = []
 
     for arquivo in os.listdir("banco_dt"):
         if arquivo.endswith(".txt"):
             with open(os.path.join("banco_dt", arquivo), "r") as txt:
-                nome_arquivo = txt.readline()
+                nome_arquivo = txt.readline(2)
 
-                if nome_arquivo.strip() == user:  # Use strip() para remover espaços em branco
-                    remetente.append(txt.readline())
-                    mensagem.append(txt.readline())
+                if nome_arquivo.strip() == user:
+                    remetente.append(txt.readline(4))
+                    mensagem.append(txt.readline(3))
 
     for i in range(len(remetente)):
-        data[remetente[i]] = mensagem[i]
+        data.append({"Remetente": remetente[i], "Mensagem": mensagem[i]})
 
     df = pd.DataFrame(data)
     df_html = df.to_html(classes='table table-striped', index=False)
