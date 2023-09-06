@@ -33,8 +33,10 @@
         </form>
 
         <div name="reading_area">
-            <div name="reading_title"><pr name="reading_title">Emails Antigos</pr></div>
-            <textarea name="reading_area" readonly>{{ df_html | safe }}</textarea>
+            <div name="reading_title"><pr name="reading_title">Emails Recebidos</pr></div>
+            <div class="reading_area">
+                <a>{{ tabela_html | safe }}</a>
+            </div>
         </div>
     </body>
 </html>

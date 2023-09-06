@@ -1,6 +1,4 @@
 from fpdf import FPDF
-import os
-import pandas as pd
 
 class Carta():
     def __init__(self, carta_id, data, destinatario, mensagem, remetente):
@@ -18,6 +16,10 @@ class Carta():
 
 
     def write(self):
+        
+        with open(f"users/{self.dst}_log.txt", 'a+') as arquivo:
+            arquivo.write(f"{self.rmt}: {self.msg}\n")
+
         with open(f"banco_dt/carta_{self.id}.txt", 'w+') as arquivo:
             arquivo.write(self.escrever)
 
@@ -33,5 +35,8 @@ class User():
         self.passw = pw
 
     def cadastrar(self):
-        with open("users.txt", 'a') as arquivo:
+        with open("users/users.txt", 'a') as arquivo:
             arquivo.write(f"{self.username}: {self.passw}")
+
+        with open(f"users/{self.username}_log.txt", 'w+') as arquivo:
+            arquivo.write("")
