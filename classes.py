@@ -27,7 +27,7 @@ class Carta():
         self.pdf.cell(200, 10, txt = self.dst, ln = 2, align = 'C')
         self.pdf.cell(200, 10, txt = self.msg, ln = 3, align = 'C')
         self.pdf.cell(200, 10, txt = self.rmt, ln = 4, align = 'C')
-        self.pdf.output(f"banco_dt/carta_{self.id}.pdf")
+        self.pdf.output(f"banco_dt_pdfs/carta_{self.id}.pdf")
 
 class User():
     def __init__(self, us, pw):
@@ -36,7 +36,7 @@ class User():
 
     def cadastrar(self):
         with open("users/users.txt", 'a') as arquivo:
-            arquivo.write(f"{self.username}: {self.passw}")
+            arquivo.write(f"{self.username}: {self.passw}\n")
 
         with open(f"users/{self.username}_log.txt", 'w+') as arquivo:
             arquivo.write("")

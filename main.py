@@ -5,7 +5,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-usuario = User
+usuarios = []
 cartas = []
 data_atual = datetime.now()
 
@@ -20,7 +20,7 @@ def login():
             user, passw = linha.strip().split(": ")
             credentials_dict[user] = passw
 
-    if request.method == "POST":
+    if "login" in request.form:
         user = request.form.get("name")
         passw = request.form.get("password")
 
@@ -29,16 +29,24 @@ def login():
         else:
             error = "Credenciais inválidas. Tente novamente."
 
+    elif "cadastro" in request.form:
+        return redirect("/cadastro")
+
     return render_template("login.html", error=error)
 
 
 @app.route("/cadastro", methods=['GET', 'POST'])
 def cadastro():
-    if request.method == "POST":
+    if "cadastrar" in request.form:
         name = request.form.get("name_c")
         passw = request.form.get("passw_c")
-        usuario.cadastrar(name, passw)
-        
+        usuario = User(name, passw)
+        usuarios.append(usuario)
+        usuario.cadastrar()
+
+        return redirect("/login")
+    
+    elif "Voltar" in request.form:
         return redirect("/login")
 
     return render_template("cadastro.html")
