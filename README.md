@@ -18,8 +18,8 @@ Repositório utilizado para a disciplina de Linguagens de Programção da Univer
 ./install.sh
 ```
 ```shell
-> flask --app main run
+flask --app main run
 ```
 ```shell
-> firefox 127.0.0.1:5000/login (ou o comando de start do seu navegador padrão)
+firefox 127.0.0.1:5000/login (ou o comando de start do seu navegador padrão)
 ```
